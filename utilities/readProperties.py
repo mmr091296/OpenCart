@@ -1,22 +1,50 @@
+# import configparser
+# import os
+#
+# config = configparser.RawConfigParser()
+# config.read(os.path.dirname(os.getcwd())+"\\OpenCart\\configurations\\config.ini")
+#
+# class ReadConfig():
+#
+#     @staticmethod
+#     def getApplicationURL():
+#         url = config.get('commonInfo','baseURL')
+#         return url
+#
+#     @staticmethod
+#     def getUseremail():
+#         username = config.get('commonInfo', 'email')
+#         return username
+#
+#     @staticmethod
+#     def getPassword():
+#         password = (config.get('commonInfo', 'password'))
+#         return password
+
+
 import configparser
 import os
 
 config = configparser.RawConfigParser()
-config.read(os.path.dirname(os.getcwd())+"\\OpenCart\\configurations\\config.ini")
+config.read(os.path.abspath(os.curdir)+'\\configurations\\config.ini')
 
 class ReadConfig():
-
     @staticmethod
     def getApplicationURL():
-        url = config.get('commonInfo','baseURL')
+        url=(config.get('commonInfo', 'baseURL'))
         return url
 
     @staticmethod
     def getUseremail():
-        username = config.get('commonInfo', 'email')
+        username=(config.get('commonInfo', 'email'))
         return username
 
     @staticmethod
     def getPassword():
-        password = (config.get('commonInfo', 'password'))
+        password=(config.get('commonInfo', 'password'))
         return password
+
+
+#Testing above methods - optional Code
+#print(ReadConfig.getApplicationURL())
+#print(ReadConfig.getUseremail())
